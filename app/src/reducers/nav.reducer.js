@@ -1,31 +1,4 @@
-import { NavigationActions } from "react-navigation";
+import { createNavigationReducer } from "react-navigation-redux-helpers";
 import { AppNavigator } from "../navigators/app.navigator";
 
-export const initialState = AppNavigator.router.getStateForAction(
-  NavigationActions.reset({
-    index: 0,
-    actions: [
-      NavigationActions.navigate({
-        routeName: "Splash"
-      })
-    ]
-  })
-);
-
-export const navReducer = (state = initialState, action) => {
-  const nextState = preventMultiTaps(action, state)
-    ? null
-    : AppNavigator.router.getStateForAction(action, state);
-  return nextState || state;
-};
-
-const preventMultiTaps = (action, state) => {
-  const { type, routeName, params } = action;
-  return !!(
-    state &&
-    type === NavigationActions.NAVIGATE &&
-    routeName === state.routes[state.routes.length - 1].routeName &&
-    JSON.stringify(params) ===
-      JSON.stringify(state.routes[state.routes.length - 1].params)
-  );
-};
+export const navReducer = createNavigationReducer(AppNavigator);

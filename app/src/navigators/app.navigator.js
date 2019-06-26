@@ -1,4 +1,4 @@
-import { StackNavigator } from "react-navigation";
+import { createStackNavigator } from "react-navigation";
 import SplashScreen from "../screens/splash/splash.screen";
 import { MainNavigator } from "./main.navigator";
 import LoginScreen from "../screens/login/login.screen";
@@ -10,7 +10,7 @@ const stackNavigatorOptions = {
   }
 };
 
-export const AppNavigator = StackNavigator(
+export const AppNavigator = createStackNavigator(
   {
     Splash: { screen: SplashScreen },
     Main: { screen: MainNavigator },

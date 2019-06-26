@@ -12,6 +12,14 @@ import { AppNavigator } from "./navigators/app.navigator";
 import { addNavigationHelpers, NavigationActions } from "react-navigation";
 import { connect } from "react-redux";
 
+import { createReduxContainer } from "react-navigation-redux-helpers";
+
+const AppContainer = createReduxContainer(AppNavigator);
+const mapStateToProps = state => ({
+  state: state.nav
+});
+const AppWithNavigationState = connect(mapStateToProps)(AppContainer);
+
 class Main extends Component {
   shouldCloseApp = () => {
     return this.props.nav.index === 0;
@@ -43,12 +51,7 @@ class Main extends Component {
           barStyle="light-content"
         />
         <SafeAreaView style={styles.body}>
-          <AppNavigator
-            navigation={addNavigationHelpers({
-              dispatch: dispatch,
-              state: nav
-            })}
-          />
+          <AppWithNavigationState />
         </SafeAreaView>
       </View>
     );

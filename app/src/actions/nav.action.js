@@ -1,4 +1,4 @@
-import { NavigationActions } from "react-navigation";
+import { StackActions, NavigationActions } from "react-navigation";
 
 export const navigateToPage = (pageName, data) => {
   return NavigationActions.navigate({
@@ -16,7 +16,7 @@ export const navigateBack = () => {
 };
 
 export const resetPage = page => {
-  return NavigationActions.reset({
+  return StackActions.reset({
     index: 0,
     actions: [NavigationActions.navigate({ routeName: page })]
   });

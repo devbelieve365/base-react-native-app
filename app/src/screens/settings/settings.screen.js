@@ -26,42 +26,8 @@ class SettingsScreen extends Component {
   render(): ReactNode {
     return (
       <View style={styles.container}>
-        <Toolbar
-          right={
-            <TouchableIcon
-              onPress={() => this.props.navigateToPage("Qr")}
-              source={require("../../../res/icon/qr-code.png")}
-            />
-          }
-          center={<Text style={styles.title}>Settings</Text>}
-        />
-        <ScrollView bounces={false}>
-          <Text style={styles.label}>Profile settings</Text>
-          <Setting
-            onPress={() => this.props.navigateToPage("Profile")}
-            label="Profile &amp; Security"
-          />
-          <Text style={styles.label}>Wallet settings</Text>
-          <Setting
-            onPress={() => this.props.navigateToPage("WalletAddress")}
-            label="Wallet address"
-          />
-          <Text style={styles.label}>App settings</Text>
-          <Setting
-            onPress={() => this.props.navigateToPage("Notifications")}
-            label="Notifications"
-          />
-          <View style={styles.separator} />
-          <View style={styles.row}>
-            <Text style={styles.text}>Version</Text>
-            <Text style={styles.version}>Beta</Text>
-          </View>
-          <View style={styles.separator} />
-          <Setting
-            onPress={() => this.props.navigateToPage("Terms")}
-            label="Terms &amp; Conditions"
-          />
-        </ScrollView>
+        <Toolbar center={<Text style={styles.title}>Home</Text>} />
+        <ScrollView bounces={false} />
       </View>
     );
   }

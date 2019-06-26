@@ -1,9 +1,9 @@
 import React from "react";
-import { TabNavigator } from "react-navigation";
+import { createBottomTabNavigator } from "react-navigation";
 import BottomTabIcon from "../components/common/bottom-tab-icon";
 import SettingsScreen from "../screens/settings/settings.screen";
 
-export const MainNavigator = TabNavigator(
+export const MainNavigator = createBottomTabNavigator(
   {
     Dashboard: {
       screen: SettingsScreen,
@@ -23,28 +23,6 @@ export const MainNavigator = TabNavigator(
           <BottomTabIcon
             focused={focused}
             source={require("../../res/icon/wallet.png")}
-          />
-        )
-      }
-    },
-    Withdraw: {
-      screen: SettingsScreen,
-      navigationOptions: {
-        tabBarIcon: ({ focused }) => (
-          <BottomTabIcon
-            focused={focused}
-            source={require("../../res/icon/send.png")}
-          />
-        )
-      }
-    },
-    History: {
-      screen: SettingsScreen,
-      navigationOptions: {
-        tabBarIcon: ({ focused }) => (
-          <BottomTabIcon
-            focused={focused}
-            source={require("../../res/icon/file.png")}
           />
         )
       }
