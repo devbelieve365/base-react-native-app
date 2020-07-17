@@ -18,7 +18,7 @@
     "metro-react-native-babel-preset": "^0.54.1",
     "react-test-renderer": "16.8.3",
     "axios": "^0.17.1",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.19",
     "moment": "^2.22.2",
     "prop-types": "^15.6.0",
     "qs": "^6.5.1",
